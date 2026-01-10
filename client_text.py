@@ -11,6 +11,10 @@ async def socketio_client(url: str):
     @sio.event
     async def connect():
         print("✅ Connected to server")
+
+    @sio.event
+    async def connection_confirmed(data: dict):
+        print("✅ Connection confirmed by server with SID:", data.get("sid"))
     
     @sio.event
     async def disconnect():

@@ -11,7 +11,6 @@ connections = set()
 
 @sio.event
 async def connect(sid, environ):
-    connections.add(sid)
     print(f"Client connected: {sid}")
 
 @sio.event

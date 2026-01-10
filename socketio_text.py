@@ -14,6 +14,7 @@ connections = set()
 @sio.event
 async def connect(sid, environ):
     connections.add(sid)
+    await sio.emit('connection_confirmed', data={"sid": sid}, to=sid)
     print(f"Client connected: {sid}")
 
 # # Event khi client ngắt kết nối
